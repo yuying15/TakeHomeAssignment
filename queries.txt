@@ -1,0 +1,30 @@
+1. select s.title from songs s
+   join artists a
+   on s.artist_id = a.artist_id
+   where a.first_name = 'Beyonce';
+
+2. select top 10 * from albums a
+   join genres g
+   on a.genre_id = g.genre_id
+   where g.genre = 'rock';
+
+3. select distinct title from songs s
+   join albums a
+   on s.album_id = a.album_id
+   join genres g
+   on a.genre_id = g.genre_id
+   join playlists p
+   on s.song_id = p.song_id
+   join users u
+   on p.user_id = u.user_id  
+   where g.genre = 'Smooth Jazz' and u.first_name = 'Kaylee';
+
+4. select top 10 s.title from songs s
+   join songPlayHistory p
+   on s.song_id = p.song_id
+   join users u
+   on p.user_id = u.user_id
+   where u.first_name = 'Kaylee'
+   group by s.title
+   order by count(*) desc;
+   
